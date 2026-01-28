@@ -38,8 +38,17 @@ xhttp.onreadystatechange = function(){
 xhttp.open("GET", "moviedata.json" , true);
 xhttp.send();
 
+let form = document.querySelector("form");
+let button = document.getElementById("submit");
+let yourGender = document.getElementById("gender");
+let favGenre = document.getElementById("genre");
+form.addEventListener("submit", function (e){
+    e.preventDefault();
+    
+}
 
-let button = document.querySelector(".submit");
+
+
 document.getElementById("submit").addEventListener("click", function(){
     console.log("click");
 });
