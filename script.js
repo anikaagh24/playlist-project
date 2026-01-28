@@ -37,3 +37,9 @@ xhttp.onreadystatechange = function(){
 
 xhttp.open("GET", "moviedata.json" , true);
 xhttp.send();
+
+
+let button = document.querySelector(".submit");
+document.getElementById("submit").addEventListener("click", function(){
+    console.log("click");
+});
