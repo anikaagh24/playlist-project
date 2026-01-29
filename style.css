@@ -12,9 +12,9 @@ body {
 
 
 .card {
-    background-color: #7D7163;
+    background-color: #d0c4b6;
     padding: 16px;
-    box-shadow: 0 2px 10px rgba(87, 62, 28, 0.214);
+    box-shadow: 10px 20px 20px rgba(92, 82, 69, 0.214);
 }
 
 .card h3 {
@@ -56,4 +56,35 @@ font-size:20px;
 .ttihay{
 margin-left:5px;
 
+}
+
+body {
+  font-family: sans-serif;
+  background: #f5f1ec;
+  color: #4a4036;
+}
+
+form {
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+label { font-size: 0.9rem; }
+
+input, textarea, button {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.8rem 0;
+  border: 1px solid #d6cfc7;
+  background: #faf8f5;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #b8aa9a;
+}
+
+button {
+  background: #d6cfc7;
+  cursor: pointer;
 }

@@ -1,5 +1,6 @@
 console.log("js console");                                                                                                                                                           
 
+let form = document.querySelector("form");
 let data; 
 let grid = document.querySelector(".grid-container");
 
@@ -38,17 +39,31 @@ xhttp.onreadystatechange = function(){
 xhttp.open("GET", "moviedata.json" , true);
 xhttp.send();
 
-let form = document.querySelector("form");
-let button = document.getElementById("submit");
-let yourGender = document.getElementById("gender");
-let favGenre = document.getElementById("genre");
-form.addEventListener("submit", function (e){
+
+form.addEventListener ("submit" , function (e){
     e.preventDefault();
-    
-}
+    let nameInput=document.getElementById("name");
+    let numberInput=document.getElementById("number");
+    let ageInput=document.getElementById("age");
+    let genreInput=document.getElementById("genre");
+
+    let name = nameInput.value;
+    let number = numberInput.value;
+    let age = ageInput.value;
+    let genre = genreInput.value;
+    let newObj = {
+        "name": name,
+        "number" :number,
+        "age": age, 
+        "genre": genre};
+    submitData(newObj);
+    form.reset();
+    console.log(name, number, age, genre);
 
 
-
-document.getElementById("submit").addEventListener("click", function(){
-    console.log("click");
 });
+
+function submitData(newObj){
+console.log("submit data", newObj);
+localStor
+}
