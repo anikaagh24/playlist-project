@@ -67,3 +67,13 @@ function submitData(newObj){
 console.log("submit data", newObj);
 localStor
 }
+
+let button = document.getElementById("watchButton");
+  let watched = false;
+
+  button.addEventListener("click", () => {
+    watched = !watched;
+    button.textContent = watched
+      ? "Mark as unwatched"
+      : "Mark as watched";
+  });
