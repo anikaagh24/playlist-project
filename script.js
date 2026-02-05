@@ -1,43 +1,52 @@
-console.log("js console");                                                                                                                                                           
+console.log("js started");
 
-let form = document.querySelector("form");
-let data; 
-let grid = document.querySelector(".grid-container");
+var data;
+var grid = document.querySelector(".grid-container");
 
-var xhttp = new XMLHttpRequest();
+if (localStorage.getItem("datalist")) {
+  data = JSON.parse(localStorage.getItem("datalist"));
+  console.log("Loaded from localStorage");
+  if (grid) {
+    makeCards();
+  }
+} else {
+  var xhttp = new XMLHttpRequest();
 
-xhttp.onreadystatechange = function(){
-    if(this.readyState == 4 && this.status==200){
-        
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      data = JSON.parse(this.responseText);
+      console.log("Loaded from gameData.json");
 
-    data=JSON.parse(xhttp.responseText);
-    console.log(data);
-    localStorage.setItem("dataList", JSON.stringify(data));
+      localStorage.setItem("datalist", JSON.stringify(data));
+      console.log("Saved starter data to localStorage");
 
-    data.forEach(function(movie){ 
+      if (grid) {
+        makeCards();
+      }
+    }
+  };
+
+  xhttp.open("GET", "movieData.json", true);
+  xhttp.send();
+}
+function makeCards() {
+  grid.innerHTML = "";
+
+  data.forEach(function (movie) {
     let card = document.createElement("div");
     card.classList.add("card");
 
+    let textData =
+      "<div class='game-title'>" + movie.title + "</div>" +
+      "<div>Publisher: " + movie.publisher + "</div>" +
+      "<div>Release Date: " + movie.releaseDate + "</div>";
 
-    let TextData = 
-    "<div class = 'movie-title'>" + movie.title + "</div>" + "<span>" + 
-    "Producer: movie.publisher" + "<br>" + "Release Date:" + movie.releaseDate + "<br>" 
-    "</span>";
-
-    card.innerHTML= TextData;
-
-    if (movie.imgSrc){
-        card.style.backgroundImage = "url('" + movie.imgSrc + "')";
-    }
-
+    card.innerHTML = textData;
     grid.appendChild(card);
-});
+  });
 
-    }
-    };
-
-xhttp.open("GET", "moviedata.json" , true);
-xhttp.send();
+  console.log("cards refreshed");
+}
 
 
 form.addEventListener ("submit" , function (e){
