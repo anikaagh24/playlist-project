@@ -1,7 +1,7 @@
 console.log("js started");
 
 var data;
-var grid = document.querySelector(".grid-container");
+var grid = document.querySelector(".grid");
 
 if (localStorage.getItem("datalist")) {
   data = JSON.parse(localStorage.getItem("datalist"));
@@ -15,7 +15,7 @@ if (localStorage.getItem("datalist")) {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText);
-      console.log("Loaded from gameData.json");
+      console.log("Loaded from filmData.json");
 
       localStorage.setItem("datalist", JSON.stringify(data));
       console.log("Saved starter data to localStorage");
@@ -26,7 +26,7 @@ if (localStorage.getItem("datalist")) {
     }
   };
 
-  xhttp.open("GET", "movieData.json", true);
+  xhttp.open("GET", "filmData.json", true);
   xhttp.send();
 }
 function makeCards() {
@@ -37,9 +37,9 @@ function makeCards() {
     card.classList.add("card");
 
     let textData =
-      "<div class='game-title'>" + movie.title + "</div>" +
-      "<div>Publisher: " + movie.publisher + "</div>" +
-      "<div>Release Date: " + movie.releaseDate + "</div>";
+      "<div class='movie-title'>" + movie.name + "</div>" +
+      "<div>Genre: " + movie.genre + "</div>" +
+      "<div>Release Year: " + movie.Year + "</div>";
 
     card.innerHTML = textData;
     grid.appendChild(card);
@@ -48,36 +48,42 @@ function makeCards() {
   console.log("cards refreshed");
 }
 
+if (localStorage.getItem("datalist")) {
+  data = JSON.parse(localStorage.getItem("datalist"));
+} else {
+  data = [];
+}
+var form = document.querySelector("form");
+ let titleInput=document.querySelector("#title");
+    let yearInput=document.querySelector("#year");
+    let genreInput=document.querySelector("#genre");
 
 form.addEventListener ("submit" , function (e){
     e.preventDefault();
-    let nameInput=document.getElementById("name");
-    let numberInput=document.getElementById("number");
-    let ageInput=document.getElementById("age");
-    let genreInput=document.getElementById("genre");
 
-    let name = nameInput.value;
-    let number = numberInput.value;
-    let age = ageInput.value;
-    let genre = genreInput.value;
-    let newObj = {
-        "name": name,
-        "number" :number,
-        "age": age, 
-        "genre": genre};
-    submitData(newObj);
-    form.reset();
-    console.log(name, number, age, genre);
+    var newObj = {
+      name: titleInput.value,
+        Year :yearInput.value,
+        genre: genreInput.value
+      };
+
+        data.push(newObj);
+        localStorage.setItem("datalist", JSON.stringify(data))
+        console.log("saved new Item to local storage")
+
+        if(document.querySelector(".grid")) {
+          makeCards();
+        }
+
+        form.reset();
+        console.log("form reset");
 
 
 });
 
-function submitData(newObj){
-console.log("submit data", newObj);
-localStor
-}
+let buttons = document.querySelectorAll(".watchButton");
 
-let button = document.getElementById("watchButton");
+buttons.forEach(button => {
   let watched = false;
 
   button.addEventListener("click", () => {
@@ -86,3 +92,4 @@ let button = document.getElementById("watchButton");
       ? "Mark as unwatched"
       : "Mark as watched";
   });
+});

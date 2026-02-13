@@ -12,6 +12,7 @@
 <body>
 
   <h1>MOVIE WATCHLIST</h1> 
+
    <h2>Romance</h2>
    <h4>The romance genre focuses on emotional relationships between characters, typically centering on love, attraction, and personal connection. Its defining feature is an emotionally satisfying ending that emphasizes hope, commitment, or lasting affection.</h4>
   <div class="grid">
@@ -19,25 +20,22 @@
   <div class="card">
      <img class = "ttihay" src = "media/ttihay.jpg" width: 100%> 
      <h3>10 THINGS I HATE ABOUT YOU</h3> <p>1999</p>
-    <button id="watchButton">Mark as watched</button>
-     <p>genre: comedy, romance, drama</p>
-     <p>starring: heath ledger & julia stiles</p>
+    <button class="watchButton">Mark as watched</button>
+     <p>Genre: comedy, romance, drama</p>
   </div>
 
    <div class="card">
      <img src = "media/titanic.jpg">
     <h3>TITANIC</h3><p>1997</p>
-    <button id="watchButton">Mark as watched</button>
-     <p>genre: drama, romance, action</p>
-    <p>starring: leonardo dicaprio & kate winslet</p>
+    <button class="watchButton">Mark as watched</button>
+     <p>Genre: drama, romance, action</p>
       </div>
 
     <div class="card">
      <img src = "media/the notebook.jpg">
      <h3>THE NOTEBOOK</h3><p>2004</p>
-      <button id="watchButton">Mark as watched</button>
-     <p>genre: romance & drama</p>
-     <p>starring: ryan gosling & rachel mcadams</p>
+      <button class="watchButton">Mark as watched</button>
+     <p>Genre: romance & drama</p>
      </div>
      </div>
 
@@ -47,25 +45,22 @@
      <div class="card">
      <img src = "media/the hunger games.jpg">
       <h3>THE HUNGER GAMES</h3><p>2012</p>
-<button id="watchButton">Mark as watched</button>
-   <p>genre: dystopian & YA</p>
-    <p>starring: jennifer lawrence & josh hutcherson</p>
+<button class="watchButton">Mark as watched</button>
+   <p>Genre: dystopian & YA</p>
   </div>
 
   <div class="card">
      <img src = "media/the hunger games 2.jpg">
     <h3>THE BALLAD OF SONGBIRDS & SNAKES</h3><p>2023</p>
-    <button id="watchButton">Mark as watched</button>
-    <p>genre: dystopian & YA</p>
-    <p>starring: tom blyth & rachel zegler</p>
+    <button class="watchButton">Mark as watched</button>
+    <p>Genre: dystopian & YA</p>
   </div>
 
   <div class="card">
      <img src = "media/divergent.jpg">
     <h3>DIVERGENT</h3><p>2014</p>
-   <button id="watchButton">Mark as watched</button>
-   <p>genre: dystopian & adventure</p>
-    <p>starring: theo games & shailene woodley</p>
+   <button class="watchButton">Mark as watched</button>
+   <p>Genre: dystopian & adventure</p>
   </div>
 </div>
 
@@ -75,25 +70,22 @@
   <div class="card">
      <img src = "media/fast and furious.webp">
     <h3>THE FAST AND THE FURIOUS</h3><p>2001</p>
-    <button id="watchButton">Mark as watched</button>
-    <p>genre: action & crime</p>
-    <p>starring: vin diesel & paul walker</p>
+    <button class="watchButton">Mark as watched</button>
+    <p>Genre: action & crime</p>
   </div>
 
   <div class="card">
      <img src = "media/the avngers.jpg">
     <h3>THE AVENGERS</h3><p>2012</p>
-    <button id="watchButton">Mark as watched</button>
-    <p>genre: action & comedy</p>
-    <p>starring: scarlett johansson & mark ruffalo</p>
+    <button class="watchButton">Mark as watched</button>
+    <p>Genre: action & comedy</p>
   </div>
 
   <div class="card">
      <img src = "media/star wars.jpg">
     <h3>STAR WARS: THE EMPIRE STRIKES BACK</h3><p>1980</p>
-   <button id="watchButton">Mark as watched</button>
-   <p>genre: action & sci-fi</p>
-    <p>starring: mark hamill & carrie fisher</p>
+   <button class="watchButton">Mark as watched</button>
+   <p>Genre: action & sci-fi</p>
      </div>
   </div> 
   <h2>Horror</h2>
@@ -102,26 +94,21 @@
   <div class="card">
       <img src = "media/the conjuring.jpg">
     <h3>THE CONJURING</h3><p>2013</p>
-    <button id="watchButton">Mark as watched</button>
-   <p>genre: horror & mystery</p>
-    <p>starring: vera farmiga & patrick wilson</p>
+    <button class="watchButton">Mark as watched</button>
+   <p>Genre: horror & mystery</p>
 </div>
   <div class="card">
       <img src = "media/it movie.jpg">
     <h3>IT</h3><p>2017</p>
-  <button id="watchButton">Mark as watched</button>
-   <p>genre: horror & thriller</p>
-    <p>starring: bill skarsgård & finn wolfhard</p>
+  <button class="watchButton">Mark as watched</button>
+   <p>Genre: horror & thriller</p>
   </div>
 
   <div class="card">
       <img src = "media/until dawn.webp">
     <h3>UNTIL DAWN</h3><p>2025</p>
-   <button id="watchButton">Mark as watched</button>
-
-   <p>genre: horror & survival</p>
-    <p>starring: ella rubin & peter stormare</p>
-
+   <button class="watchButton">Mark as watched</button>
+   <p>Genre: horror & survival</p>
     </div>
   </div>
 
@@ -135,17 +122,13 @@
 <body>
 
 
-<form action="/submit" method="post" >
-  <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" placeholder="Anika Akter">
+<form class = "form" action="/submit" method="post" >
+  <label for="name">Movie Title:</label><br>
+    <input type="text" id="title" name="title" placeholder="Titanic">
   <br>
   <br>
-  <label for="number">Number:</label><br>
-    <input type="phone" id="number" name="number" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" >
-  <br>
-  <br>
-  <label for="age">Age:</label><br>
-    <input type="text" placeholder="13+"  id="age" name="age">
+  <label for="year">Release Year:</label><br>
+    <input type="number" id="year" name="year" placeholder="1997">
   <br>
   <br>
   <label for="genre">Fav Genre:</label><br>
@@ -155,6 +138,6 @@
   <input type="submit" value="Submit">
 
 </form> 
-<script src = "script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
